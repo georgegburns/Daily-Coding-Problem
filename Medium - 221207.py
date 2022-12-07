@@ -12,16 +12,14 @@ def cons(a, b):
 
 # Implement car and cdr.
 
-#defining two functions that take a and b and return the relevant input
-def car(a,b):
-    return a
+#defining two functions that take cons(a,b) and return the relevant input using the .closure__ attribute
+def car(f):
+    #referencing the relevant index
+    return f.__closure__[0].cell_contents
 
-def cdr(a,b):
-    return b
+def cdr(f):
+    return f.__closure__[1].cell_contents
 
-#calling the pair function into a variable
-x = cons(3,4)
-
-#placing the car and con function into the f variable of pair
-print(x(car))
-print(x(cdr))
+#outputs
+print(car(cons(3,4)))
+print(cdr(cons(3,4)))
