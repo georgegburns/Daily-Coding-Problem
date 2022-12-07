@@ -12,7 +12,7 @@ def cons(a, b):
 
 # Implement car and cdr.
 
-#defining two functions that take cons(a,b) and return the relevant input using the .closure__ attribute
+#defining two functions that take cons(a,b) and return the relevant input using the .__closure__ attribute
 def car(f):
     #referencing the relevant index
     return f.__closure__[0].cell_contents
