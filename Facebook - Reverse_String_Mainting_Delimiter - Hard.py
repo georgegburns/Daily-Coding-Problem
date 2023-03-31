@@ -3,6 +3,7 @@
 # Follow-up: Does your solution work for the following cases: 
 # "hello/world:here/", "hello//world:here"
 import string
+import re
 
 def stringReverseDelimiter(text : str):
     """
@@ -11,40 +12,20 @@ def stringReverseDelimiter(text : str):
     """
     # This is used to establish whether a character is a letter or a delimiter
     LETTERS = string.ascii_letters
-    SEPERATE = []
-    TEMP = []
+    RESULTS = []
+    WORDS = re.split('\W', text)
+    DELIMITERS = re.split('[a-zA-Z]', text)
+    WORDS = [x for x in WORDS if x]
+    DELIMITERS = [x for x in DELIMITERS if x]
     
     """
 
         Main function
 
     """
-    
-    # Iterating through each character in the string and assigning to a list depending on whether it is a letter or a non-letter
-    for i in range(len(text)):
-        if not TEMP:
-            TEMP.append(text[i])
-        elif text[i] not in LETTERS and TEMP[-1] in LETTERS:
-            SEPERATE.append("".join(TEMP))
-            TEMP = []
-            TEMP.append(text[i])
-        elif text[i] in LETTERS and TEMP[-1] not in LETTERS:
-            SEPERATE.append("".join(TEMP))
-            TEMP = []
-            TEMP.append(text[i])
-        else:
-            TEMP.append(text[i])
-    # These capture the last stored variables after the loop has ended   
-    SEPERATE.append("".join(TEMP))
-    
-    # Seperating out into two lists one of words and the other of delimiters
-    WORDS = [x for x in SEPERATE if x[0] in LETTERS]
-    DELIMITERS = [x for x in SEPERATE if x[0] not in LETTERS]
-    
     # Reversing the list of words
     WORDS.reverse()
-    
-    RESULTS = []
+
     # This is here to ensure that all the words / delimiters are captured in circumstances where they aren't even
     COUNT = max(len(WORDS), len(DELIMITERS))
     
@@ -68,12 +49,12 @@ def stringReverseDelimiter(text : str):
     return RESULT
 
 # Produces here/world:hello PASS 
-#TEST = 'hello/world:here'
+TEST = 'hello/world:here'
 
 # Produces here/world:hello/ PASS
 #TEST = "hello/world:here/"
 
 # Produces here//world:hello PASS
-TEST = "hello//world:here"
+#TEST = "hello//world:here"
 
 print(stringReverseDelimiter(TEST))
