@@ -21,4 +21,4 @@ def rotateBy(lst : list, k : int):
 # Produces [3, 4, 5, 6, 1, 2] PASS
 test = [1, 2, 3, 4, 5, 6]
 
-print(rotateBy(test, 3))
+print(rotateBy(test, 2))
