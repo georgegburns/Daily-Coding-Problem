@@ -15,5 +15,5 @@ def minCoins(n : int):
             break
     return count
 
-# O(n) time n(1) space, returns 3 PASS
+# O(n) time O(1) space, returns 3 PASS
 print(minCoins(16))
