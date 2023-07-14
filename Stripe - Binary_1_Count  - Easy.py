@@ -21,7 +21,7 @@ def binaryGen(num : int):
 def oneCounter(binary : str):
     binary = binary.split('0')
     result = sorted(binary, key=lambda x : len(x))[-1]
-    return result
+    return len(result)
         
 # returns 111 PASS
 print(oneCounter(binaryGen(TEST)))
