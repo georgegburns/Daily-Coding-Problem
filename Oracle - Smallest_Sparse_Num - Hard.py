@@ -15,7 +15,6 @@ def binaryConverter(num : int):
         else:
             bin += '0'
         num = math.floor(num / 2)
-    print(og, bin)
     if '11' not in bin.split('0') and '00' not in bin.split('1'):
         return og
     else:
