@@ -18,7 +18,7 @@ def binaryConverter(num : int):
     if '11' not in bin.split('0'):
         return og
     else:
-        og = og-1
+        og = og+1
         return binaryConverter(og)
 
 print(binaryConverter(21))
